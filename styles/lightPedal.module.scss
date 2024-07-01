@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+}
+
+.scene {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    // Title
+    font-size: 6em;
+    font-weight: bolder;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1em;
+    letter-spacing: -0.05em;
+    padding-bottom: 0.15em;
+    z-index: 1;
+
+    position: fixed;
+    text-wrap: wrap;
+    width: 50em;
+  }
+
+  section {
+    // Text
+    position: fixed;
+    text-wrap: wrap;
+    padding-right: 20em;
+    padding-bottom: 10em;
+    width: 65em;
+
+    p {
+      font-size: 5em;
+      line-height: 1em;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      padding-bottom: 0.15em;
+    }
+  }
+}
+
+// Bike
+.bikeMotion {
+  display: flex;
+  transform-origin: bottom center;
+  position: absolute;
+  bottom: 30px;
+  width: 10em;
+  height: auto;
+  z-index: 1;
+}

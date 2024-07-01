@@ -1,48 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
 body {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
   font-family: "Inter", sans-serif;
   background: #ffffff;
   color: #312f2f;
   overflow-x: hidden;
-}
-
-circle,
-rect,
-line {
-  stroke-width: 10px;
-  stroke-linecap: round;
-  fill: transparent;
+  border: 0;
+  margin: 0;
 }
 
 .container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   left: 0;
-  /* background-color: aqua; */
 }
 
 .scene {
   position: relative;
-  /* overflow: hidden; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .bike {
-  /* transform: scale(0.1); */
-  /* scale: 1; */
   display: flex;
   transform-origin: bottom center;
   position: absolute;
   bottom: 15px;
-  /* background-color: black; */
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
   z-index: 1;
 }
 
@@ -58,14 +48,13 @@ line {
   text-wrap: wrap;
   padding-right: 20em;
   padding-bottom: 10em;
-  width: 15%;
+  width: 65em;
 }
 
 .text-wrap-2 {
   position: fixed;
   text-wrap: wrap;
-  /* padding-right: 20em; */
-  width: 15%;
+  width: 50em;
 }
 
 .title-2 {
