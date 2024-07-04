@@ -52,7 +52,19 @@
   transform-origin: bottom center;
   position: absolute;
   bottom: 30px;
+  left: 0;
   width: 10em;
   height: auto;
   z-index: 1;
+  animation: moveBike 15s cubic-bezier(0.33, 1, 0.68, 1) infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes moveBike {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 270%;
+  }
 }
