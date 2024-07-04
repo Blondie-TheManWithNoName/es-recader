@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/lightPedal.module.scss";
 import SVGMotion from "./SVGMotion";
 import BikeMotion from "./BikeMotion";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 const moveLeft = {
   initial: { x: 0 },
@@ -46,19 +47,10 @@ const moveLeft = {
 };
 
 export function LightPedal() {
-  const [width, setWidth] = useState(0);
   const [heightSVG, setHeightSVG] = useState(0);
   const [first, setFirst] = useState(0);
-
-  useEffect(() => {
-    const resize = () => {
-      setWidth(window.innerWidth);
-      setHeightSVG(600);
-    };
-    resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, []);
+  const size = useWindowSize();
+  // const { widthNew } = useViewport();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -68,15 +60,19 @@ export function LightPedal() {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    setHeightSVG(size.height / 1.6);
+  }, [size.height]);
+
   const time = 15;
   const r = 150;
 
   const path = `M0 15
-                H${width - heightSVG / 2}
-                A 1 1, 0, 0 1, ${width - heightSVG / 2} ${heightSVG / 2}
+                H${size.width - heightSVG / 2}
+                A 1 1, 0, 0 1, ${size.width - heightSVG / 2} ${heightSVG / 2}
                 H${heightSVG / 2}
                 A 1 1, 0, 0 0, ${heightSVG / 2} ${heightSVG}
-                H${width}`;
+                H${size.width}`;
 
   const pathWhite1 = `M${heightSVG / 2} ${heightSVG / 2}
                       A 1 1, 0, 0 0, ${heightSVG / 2} ${heightSVG}
@@ -84,25 +80,27 @@ export function LightPedal() {
                       V${heightSVG / 2}
                       Z`;
 
-  const path2 = `M0 ${heightSVG} H${width}`;
+  const path2 = `M0 ${heightSVG} H${size.width}`;
 
-  const pathWhite2 = `M${width - heightSVG / 1.25} ${heightSVG}
-                      A ${r} ${r}, 0, 0 0, ${width - heightSVG / 1.25 + r} ${
-    heightSVG - r
-  }
+  const pathWhite2 = `M${size.width - heightSVG / 1.25} ${heightSVG}
+                      A ${r} ${r}, 0, 0 0, ${
+    size.width - heightSVG / 1.25 + r
+  } ${heightSVG - r}
 
   V${heightSVG / 2}
-                      H${width}
+                      H${size.width}
                       V${heightSVG}
                       Z`;
   const path3 = `M0 ${heightSVG} 
-                 H${width - heightSVG / 1.25}
-                 A ${r} ${r}, 0, 0 0, ${width - heightSVG / 1.25 + r} ${
+                 H${size.width - heightSVG / 1.25}
+                 A ${r} ${r}, 0, 0 0, ${size.width - heightSVG / 1.25 + r} ${
     heightSVG - r
   }
                  V${15 + r}
-                 A ${r} ${r}, 0, 0 1, ${width - heightSVG / 1.25 + r * 2} 15
-                 H${width}
+                 A ${r} ${r}, 0, 0 1, ${
+    size.width - heightSVG / 1.25 + r * 2
+  } 15
+                 H${size.width}
                  `;
 
   return (
@@ -124,16 +122,14 @@ export function LightPedal() {
           extraPath={pathWhite1}
           heightSVG={heightSVG}
         />
-        <BikeMotion width={width} />
+        <BikeMotion />
       </div>
-
       <div className={styles.scene}>
         <section>
           <p>Gaudeix de les teves rutes en bici sense cap càrrega.</p>
         </section>
         <SVGMotion path={path2} delay={time / 6 - 1 / 3} start={0} end={0} />
       </div>
-
       <div className={styles.scene}>
         <section>
           <p>
@@ -148,13 +144,13 @@ export function LightPedal() {
           extraPath={pathWhite2}
         />
       </div>
-
       <div className={styles.scene}>
         <SVGMotion
           path={path}
           delay={(5 / 6) * time - 1 / 3}
           start={0}
           end={0}
+          extraPath={pathWhite1}
         />
         <h2>
           Pedal <br /> Lleuger

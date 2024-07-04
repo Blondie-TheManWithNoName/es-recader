@@ -1,5 +1,7 @@
 import React from "react";
 import { delay, motion } from "framer-motion";
+import { useWindowSize } from "../hooks/useWindowSize";
+
 const paintPath = {
   hidden: { pathLength: 0, opacity: 1 },
   visible: ([delay, start, end]) => {
@@ -30,10 +32,11 @@ export default function motionSVG({
   extraPath,
   heightSVG,
 }) {
+  const size = useWindowSize();
   return (
     <motion.svg
       width="100vw"
-      height={600 + strokeWidth / 2}
+      height={size.height / 1.6 + strokeWidth / 2}
       initial="hidden"
       animate="visible"
       key={`path-${start}`}
