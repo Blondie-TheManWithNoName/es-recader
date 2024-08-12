@@ -2,15 +2,77 @@ import { delay, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { LightPedal } from "./components/LighPedal";
 import title from "../public/title.svg";
+import serveis from "../public/serveis.svg";
+import servei10 from "../public/servei10.svg";
+import servei14 from "../public/servei14.svg";
+import serveiBici from "../public/serveiBici.svg";
+import serveiInmediat from "../public/serveiInmediat.svg";
+import spain from "../public/spain.svg";
+import phone from "../public/phone.svg";
 import Image from "next/image";
-import mask from "../public/mask_group.png";
+import mask from "../public/hero.png";
+import vector from "../public/vector.svg";
+import guy from "../public/guy.jpg";
+import line from "../public/line.svg";
+import truck from "../public/truck.svg";
+import house from "../public/house.svg";
+import building from "../public/building.svg";
 
 export default function App() {
+  // const size = useWindowSize();
+
   return (
     <div className="relative">
       <div className="flex flex-col items-center mt-28">
-        <Image src={title} alt="title" className="scale-125 mt-8 absolute" />
-        <Image src={mask} alt="mask" className="w-screen" />
+        {/* {size.width}px / {size.height}px */}
+        <Image
+          src={title}
+          alt="title"
+          className="scale-125 mt-14 ml-8 absolute"
+        />
+        <div className="relative">
+          <Image src={vector} alt="mask" className="w-screen" />
+          <div className="w-screen h-[75vh] bg-[#312F2F] relative flex items-center justify-end">
+            <h2 className="text-6xl text-white pr-32">
+              Recollida i lliurament <br /> de paquets amb{" "}
+              <span className="font-bold text-[#FF6262] italic">
+                <br />
+                esRecader
+              </span>
+            </h2>
+            <Image
+              src={guy}
+              alt="mask"
+              className="scale-[70%] origin-bottom-left absolute bottom-0 left-24 border-x-[5rem]  border-[#312F2F]"
+            />
+            <Image
+              src={truck}
+              alt="mask"
+              className=" absolute bottom-6  origin-bottom-left left-[75%] z-10 truck-animation"
+            />
+            <Image
+              src={line}
+              alt="mask"
+              className="w-screen absolute bottom-0 z-20"
+            />
+            <Image
+              src={house}
+              alt="mask"
+              className="absolute w-7 h-16 scale-[400%] bottom-10 bg-animation z-0 delay-1000"
+            />{" "}
+            <Image
+              src={house}
+              alt="mask"
+              className="absolute w-7 h-16 scale-[400%] bottom-10 bg-animation z-0 delay-500"
+            />{" "}
+            {/* <div className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-75"></div>
+            <div
+              className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-700
+            "
+            ></div> */}
+          </div>
+        </div>
+      </div>
       </div>
       <LightPedal />
 
