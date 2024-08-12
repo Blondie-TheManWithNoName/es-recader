@@ -73,7 +73,28 @@ export default function App() {
           </div>
         </div>
       </div>
+      {/* <div className="h-[80vh] w-screen flex justify-center items-center"> */}
+      {/* </div> */}
+      <div className="mb-64 flex flex-col items-center mt-60">
+        <div className="w-screen">
+          <div className="relative">
+            <h2 className="text-stone-50 text-8xl font-extrabold uppercase italic relative ml-60 z-10">
+              Serveis
+            </h2>
+            <Image src={serveis} alt="title" className="absolute top-0" />
+          </div>
+        </div>
+        <div className="flex flex-row w-9/12 mt-60 gap-28 ml-40">
+          <p className="text-6xl tracking-tight ">
+            Oferim recollides i <br />
+            lliuraments a tota la <br />{" "}
+            <span className="font-bold">peninsula</span> i a totes <br />
+            les <span className="font-bold">illes balears.</span>
+          </p>
+          <Image src={spain} alt="title" className="" />
+        </div>
       </div>
+
       <LightPedal />
 
       <div className=" flex flex-col items-center mt-52 relative">
