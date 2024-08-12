@@ -13,6 +13,37 @@ export default function App() {
         <Image src={mask} alt="mask" className="w-screen" />
       </div>
       <LightPedal />
+
+      <div className=" flex flex-col items-center mt-52 relative">
+        <div className="grid grid-cols-[5rem_auto] gap-x-10 gap-y-10 ">
+          <Image src={serveiBici} alt="title" />
+          <div>
+            <h4 className="text-4xl font-bold tracking-tighter">
+              Pedal Lleuger
+            </h4>
+            <p className="text-3xl">Transport de maletes per ciclistes*</p>
+          </div>
+          <Image src={servei10} alt="title" className="scale-105" />
+          <div className="">
+            <h4 className="text-4xl font-bold tracking-tighter">Servei 10</h4>
+            <p className="text-3xl">Entrega el dia següent abans de les 10h</p>
+          </div>
+          <Image src={servei14} alt="title" className="scale-105" />
+          <div className="">
+            <h4 className="text-4xl font-bold tracking-tighter">Servei 14</h4>
+            <p className="text-3xl">Entrega el dia següent abans de les 14h</p>
+          </div>
+          <Image src={serveiInmediat} alt="title" />
+          <div className="">
+            <h4 className="text-4xl font-bold tracking-tighter">Inmediat</h4>
+            <p className="text-3xl">Entrega el mateix dia*</p>
+          </div>
+          <p className="col-span-2 ml-8">
+            *Serveis nomes disponibles a Menorca
+          </p>
+        </div>
+      </div>
+
       <footer className="bg-[#312F2F] w-screen h-[85vh] mt-48 relative">
         <div className="h-5 bg-[#FF6262] absolute top-0 w-full"></div>
         <div className="grid grid-cols-2 w-full h-full relative pt-24">
