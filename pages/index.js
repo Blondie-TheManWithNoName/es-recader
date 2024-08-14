@@ -12,11 +12,11 @@ import phone from "../public/phone.svg";
 import Image from "next/image";
 import mask from "../public/hero.png";
 import vector from "../public/vector.svg";
-import guy from "../public/guy.jpg";
-import line from "../public/line.svg";
+import guy from "../public/guy-white.jpg";
+import line from "../public/full-line.svg";
 import truck from "../public/truck.svg";
-import house from "../public/house.svg";
 import building from "../public/building.svg";
+import TruckMotion from "./components/TruckMotion";
 
 export default function App() {
   // const size = useWindowSize();
@@ -25,25 +25,18 @@ export default function App() {
     <div className="relative">
       <div className="flex flex-col items-center mt-28">
         {/* {size.width}px / {size.height}px */}
-        <Image
-          src={title}
-          alt="title"
-          className="scale-125 mt-14 ml-8 absolute"
-        />
-        <div className="relative">
-          <Image src={vector} alt="mask" className="w-screen" />
-          <div className="w-screen h-[75vh] bg-[#312F2F] relative flex items-center justify-end">
-            <h2 className="text-6xl text-white pr-32">
-              Recollida i lliurament <br /> de paquets amb{" "}
-              <span className="font-bold text-[#FF6262] italic">
-                <br />
-                esRecader
-              </span>
+        <Image src={title} alt="title" className="scale-125 mt-14 ml-8" />
+        <div className="relative mt-40">
+          {/* <Image src={vector} alt="mask" className="w-screen" /> */}
+          <div className="w-screen h-[75vh] relative flex items-center justify-end">
+            <h2 className="text-6xl text-[#312F2F] pr-32">
+              Lliura o rep paquets <br /> amb{" "}
+              <span className="font-bold text-[#FF6262] italic">esRecader</span>
             </h2>
             <Image
               src={guy}
               alt="mask"
-              className="scale-[70%] origin-bottom-left absolute bottom-0 left-24 border-x-[5rem]  border-[#312F2F]"
+              className="scale-[60%] origin-bottom-left absolute bottom-0 left-40"
             />
             <Image
               src={truck}
@@ -55,16 +48,59 @@ export default function App() {
               alt="mask"
               className="w-screen absolute bottom-0 z-20"
             />
-            <Image
-              src={house}
-              alt="mask"
-              className="absolute w-7 h-16 scale-[400%] bottom-10 bg-animation z-0 delay-1000"
-            />{" "}
-            <Image
-              src={house}
-              alt="mask"
-              className="absolute w-7 h-16 scale-[400%] bottom-10 bg-animation z-0 delay-500"
-            />{" "}
+
+            <motion.div
+              className="w-7 h-20 bottom-6 absolute"
+              initial={{ left: "100%", opacity: 1 }}
+              animate={{
+                left: "50%", // Final position at the end of the animation
+                // opacity: 0,
+              }}
+              transition={{
+                duration: 3.5, // Total duration of the animation
+                times: [0, 1], // Keyframe timings for opacity
+                ease: "linear", // Linear timing function for smooth animation
+                repeat: Infinity, // Repeat the animation infinitely
+                repeatType: "loop", // Loop the animation seamlessly
+                repeatDelay: 3.5,
+              }}
+            >
+              {/* <Image src={house} alt="mask" className="w-7 h-16 scale-[400%]" />{" "} */}
+            </motion.div>
+            {/* <TruckMotion
+              array={Array.from({ length: 4 })}
+              left="50%"
+              delay={0}
+              duration={3}
+            ></TruckMotion> */}
+
+            <TruckMotion
+              array={Array.from({ length: 7 })}
+              delay={0}
+              slow={1.5}
+              fast={1}
+            ></TruckMotion>
+            {/* <Image
+                  src={house}
+                  alt="mask"
+                  className="w-7 h-16 scale-[400%] ml-32"
+                />
+                <Image
+                  src={house}
+                  alt="mask"
+                  className="w-7 h-16 scale-[400%] ml-40"
+                />
+                <Image
+                  src={house}
+                  alt="mask"
+                  className="w-7 h-16 scale-[400%] ml-32"
+                />
+                <Image
+                  src={house}
+                  alt="mask"
+                  className="w-7 h-16 scale-[400%] ml-32"
+                /> */}
+            {/* </motion.div> */}
             {/* <div className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-75"></div>
             <div
               className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-700
