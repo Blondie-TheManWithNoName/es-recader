@@ -7,6 +7,7 @@ import servei10 from "../public/servei10.svg";
 import servei14 from "../public/servei14.svg";
 import serveiBici from "../public/serveiBici.svg";
 import serveiInmediat from "../public/serveiInmediat.svg";
+import ship from "../public/ship.svg"
 import spain from "../public/spain.svg";
 import phone from "../public/phone.svg";
 import Image from "next/image";
@@ -106,20 +107,25 @@ export default function App() {
             </h4>
             <p className="text-3xl">Transport de maletes per ciclistes*</p>
           </div>
+          <Image src={serveiInmediat} alt="title" />
+          <div className="">
+            <h4 className="text-4xl font-bold tracking-tighter">Servei camí de cavalls</h4>
+            <p className="text-3xl">Transport de maletes entre hotels/estàncies*</p>
+          </div>
           <Image src={servei10} alt="title" className="scale-105" />
           <div className="">
             <h4 className="text-4xl font-bold tracking-tighter">Servei 10</h4>
-            <p className="text-3xl">Entrega el dia següent abans de les 10h</p>
+            <p className="text-3xl">Entrega de paqueteria l'endemà abans de les 10h</p>
           </div>
           <Image src={servei14} alt="title" className="scale-105" />
           <div className="">
             <h4 className="text-4xl font-bold tracking-tighter">Servei 14</h4>
-            <p className="text-3xl">Entrega el dia següent abans de les 14h</p>
+            <p className="text-3xl">Entrega de paqueteria l'endemà abans de les 14h</p>
           </div>
-          <Image src={serveiInmediat} alt="title" />
+          <Image src={ship} alt="title" />
           <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">Inmediat</h4>
-            <p className="text-3xl">Entrega el mateix dia*</p>
+            <h4 className="text-4xl font-bold tracking-tighter">Servei marítim</h4>
+            <p className="text-3xl">Entrega entre 2/3 dies laborals</p>
           </div>
           <p className="col-span-2 ml-8">
             *Serveis nomes disponibles a Menorca
