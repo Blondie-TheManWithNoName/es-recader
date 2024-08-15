@@ -11,7 +11,7 @@ export default function HouseMotion({ extraDelay, delay, duration }) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
-        right: ["0%", `${40 * 0.3}%`, `${40 * 0.75}%`, "40%"],
+        right: ["50%", `${40 * 0.3 + 50}%`, `${40 * 0.75 + 50}%`, "90%"],
         opacity: [0, 1, 1, 0],
       }}
       transition={{

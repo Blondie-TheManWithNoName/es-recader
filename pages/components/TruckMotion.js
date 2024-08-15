@@ -4,7 +4,7 @@ import { delay, motion } from "framer-motion";
 
 export default function TruckMotion({ array, delay, slow, fast }) {
   return (
-    <div className="w-7 h-20 bottom-6 absolute w-screen">
+    <div className="w-7 h-20 bottom-16 absolute w-screen">
       {array.map((_, index) => (
         <HouseMotion
           key={index}

@@ -9,7 +9,13 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        vs: "3vw", // Custom viewport-sized font, e.g., 3% of the viewport width
+        vsm: "3.5vw", // Slightly larger viewport-sized font
+        vlg: "6vw", // Even larger viewport-sized font
+      },
+    },
   },
   plugins: [],
 };

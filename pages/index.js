@@ -7,135 +7,116 @@ import servei10 from "../public/servei10.svg";
 import servei14 from "../public/servei14.svg";
 import serveiBici from "../public/serveiBici.svg";
 import serveiInmediat from "../public/serveiInmediat.svg";
-import ship from "../public/ship.svg"
+import ship from "../public/ship.svg";
 import spain from "../public/spain.svg";
 import phone from "../public/phone.svg";
 import Image from "next/image";
 import mask from "../public/hero.png";
 import vector from "../public/vector.svg";
-import guy from "../public/guy-white.jpg";
-import line from "../public/full-line.svg";
+import guy from "../public/guy-white-circle-2.jpg";
+import line from "../public/line-2.svg";
 import truck from "../public/truck.svg";
+import cavalls from "../public/cavalls.svg";
+import maritim from "../public/maritim.svg";
 import building from "../public/building.svg";
+import package2 from "../public/package-open.svg";
 import TruckMotion from "./components/TruckMotion";
 
 export default function App() {
   // const size = useWindowSize();
 
   return (
-    <div className="relative">
-      <div className="flex flex-col items-center mt-28">
+    <div className="relative w-full">
+      <div className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
         {/* {size.width}px / {size.height}px */}
-        <Image src={title} alt="title" className="scale-125 mt-14 ml-8" />
-        <div className="relative mt-40">
-          {/* <Image src={vector} alt="mask" className="w-screen" /> */}
-          <div className="w-screen h-[75vh] relative flex items-center justify-end">
-            <h2 className="text-6xl text-[#312F2F] pr-32">
+        <div className="grid justify-center">
+          <Image src={title} alt="title" className="mt-32 scale-125 " />
+        </div>
+        <Image src={guy} alt="mask" className="w-[34rem]" />
+        <Image
+          src={line}
+          alt="mask"
+          className="w-[60%] left-0 absolute bottom-0 z-20"
+        />
+        <Image
+          src={truck}
+          alt="mask"
+          className=" absolute bottom-16  origin-bottom-left left-[75%] z-10 truck-animation"
+        />
+        <TruckMotion
+          array={Array.from({ length: 7 })}
+          delay={0}
+          slow={1.5}
+          fast={1}
+        ></TruckMotion>
+        {/* <Image src={vector} alt="mask" className="w-screen col-span-2" /> */}
+        {/* <div className="relative mt-12 col-span-2"> */}
+        {/* <div className="w-screen relative flex items-center justify-end"> */}
+        {/* <h2 className="text-6xl text-[#312F2F] pr-32">
               Lliura o rep paquets <br /> amb{" "}
               <span className="font-bold text-[#FF6262] italic">esRecader</span>
-            </h2>
-            <Image
-              src={guy}
-              alt="mask"
-              className="scale-[60%] origin-bottom-left absolute bottom-0 left-40"
-            />
-            <Image
-              src={truck}
-              alt="mask"
-              className=" absolute bottom-6  origin-bottom-left left-[75%] z-10 truck-animation"
-            />
-            <Image
+            </h2> */}
+        {/* <Image
               src={line}
               alt="mask"
               className="w-screen absolute bottom-0 z-20"
-            />
+            /> */}
 
-            <motion.div
-              className="w-7 h-20 bottom-6 absolute"
-              initial={{ left: "100%", opacity: 1 }}
-              animate={{
-                left: "50%", // Final position at the end of the animation
-                // opacity: 0,
-              }}
-              transition={{
-                duration: 3.5, // Total duration of the animation
-                times: [0, 1], // Keyframe timings for opacity
-                ease: "linear", // Linear timing function for smooth animation
-                repeat: Infinity, // Repeat the animation infinitely
-                repeatType: "loop", // Loop the animation seamlessly
-                repeatDelay: 3.5,
-              }}
-            >
-              {/* <Image src={house} alt="mask" className="w-7 h-16 scale-[400%]" />{" "} */}
-            </motion.div>
-            {/* <TruckMotion
-              array={Array.from({ length: 4 })}
-              left="50%"
-              delay={0}
-              duration={3}
-            ></TruckMotion> */}
-
-            <TruckMotion
-              array={Array.from({ length: 7 })}
-              delay={0}
-              slow={1.5}
-              fast={1}
-            ></TruckMotion>
-            {/* <Image
-                  src={house}
-                  alt="mask"
-                  className="w-7 h-16 scale-[400%] ml-32"
-                />
-                <Image
-                  src={house}
-                  alt="mask"
-                  className="w-7 h-16 scale-[400%] ml-40"
-                />
-                <Image
-                  src={house}
-                  alt="mask"
-                  className="w-7 h-16 scale-[400%] ml-32"
-                />
-                <Image
-                  src={house}
-                  alt="mask"
-                  className="w-7 h-16 scale-[400%] ml-32"
-                /> */}
-            {/* </motion.div> */}
-            {/* <div className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-75"></div>
-            <div
-              className="absolute w-7 h-16 bg-slate-300 bottom-6 bg-animation z-0 delay-700
-            "
-            ></div> */}
-          </div>
-        </div>
+        {/* </div> */}
+        {/* </div> */}
       </div>
       {/* <div className="h-[80vh] w-screen flex justify-center items-center"> */}
       {/* </div> */}
-      <div className="mb-64 flex flex-col items-center mt-60">
-        <div className="w-screen">
-          <div className="relative">
-            <h2 className="text-stone-50 text-8xl font-extrabold uppercase italic relative ml-60 z-10">
-              Serveis
-            </h2>
-            <Image src={serveis} alt="title" className="absolute top-0" />
-          </div>
-        </div>
-        <div className="flex flex-row w-9/12 mt-60 gap-28 ml-40">
-          <p className="text-6xl tracking-tight ">
+      <div className="mt-60 grid justify-items-center relative">
+        <h2 className="text-vsm leading-snug text-[#312F2F] w-[55%] -ml-10 whitespace-nowrap tracking-tighter">
+          Som una empresa menorquina <br /> dedicada al{" "}
+          <span className="underline decoration-[#FF6262] font-medium">
+            lliurament
+          </span>{" "}
+          i{" "}
+          <span className="underline decoration-[#FF6262] font-medium">
+            recollida
+          </span>{" "}
+          <br /> de paqueteria i missatgeria.
+        </h2>
+        <Image
+          src={package2}
+          alt="title"
+          className="w-[65%] md:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-30"
+          // className="w-[65%] md:w-[45%] absolute -rotate-[40deg] right-0 -bottom-[27rem] z-10 opacity-20"
+        />
+      </div>
+      <div className="mb-64 flex flex-col items-center mt-[25rem]">
+        <h2 className="text-vlg font-extrabold uppercase italic relative z-10 flex flex-col">
+          <span className="text-vsm pl-7"> Els nostres</span>
+          <span style={{ marginTop: "-3rem" }}>Serveis</span>
+        </h2>
+        {/* <Image src={serveis} alt="title" className="absolute top-0" /> */}
+        <div className="flex flex-col md:flex-row w-full justify-center items-center mt-20 md:mt-40 gap-20 md:gap-28">
+          <p className=" text-vlg md:text-vsm leading-tight tracking-tight whitespace-nowrap">
             Oferim recollides i <br />
-            lliuraments a tota la <br />{" "}
-            <span className="font-bold">peninsula</span> i a totes <br />
-            les <span className="font-bold">illes balears.</span>
+            lliuraments a tota la <br />
+            <span className="underline decoration-[#FF6262] font-medium">
+              peninsula
+            </span>{" "}
+            i a totes <br />
+            les{" "}
+            <span className="underline decoration-[#FF6262] font-medium">
+              illes balears
+            </span>
           </p>
-          <Image src={spain} alt="title" className="" />
+          <Image
+            src={spain}
+            alt="title"
+            className="w-[65%] md:w-[30%] relative"
+          />
         </div>
       </div>
 
       <LightPedal />
 
       <div className=" flex flex-col items-center mt-52 relative">
-        <div className="grid grid-cols-[5rem_auto] gap-x-10 gap-y-10 ">
+        <div className="grid grid-cols-[5rem_auto] gap-x-10 gap-y-10 pl-24 sm:pr-5">
           <Image src={serveiBici} alt="title" />
           <div>
             <h4 className="text-4xl font-bold tracking-tighter">
@@ -143,24 +124,34 @@ export default function App() {
             </h4>
             <p className="text-3xl">Transport de maletes per ciclistes*</p>
           </div>
-          <Image src={serveiInmediat} alt="title" />
+          <Image src={cavalls} alt="title" />
           <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">Servei camí de cavalls</h4>
-            <p className="text-3xl">Transport de maletes entre hotels/estàncies*</p>
+            <h4 className="text-4xl font-bold tracking-tighter">
+              Servei camí de cavalls
+            </h4>
+            <p className="text-3xl">
+              Transport de maletes entre hotels/estàncies*
+            </p>
           </div>
           <Image src={servei10} alt="title" className="scale-105" />
           <div className="">
             <h4 className="text-4xl font-bold tracking-tighter">Servei 10</h4>
-            <p className="text-3xl">Entrega de paqueteria l'endemà abans de les 10h</p>
+            <p className="text-3xl">
+              Entrega de paqueteria l'endemà abans de les 10h
+            </p>
           </div>
           <Image src={servei14} alt="title" className="scale-105" />
           <div className="">
             <h4 className="text-4xl font-bold tracking-tighter">Servei 14</h4>
-            <p className="text-3xl">Entrega de paqueteria l'endemà abans de les 14h</p>
+            <p className="text-3xl">
+              Entrega de paqueteria l'endemà abans de les 14h
+            </p>
           </div>
-          <Image src={ship} alt="title" />
+          <Image src={maritim} alt="title" />
           <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">Servei marítim</h4>
+            <h4 className="text-4xl font-bold tracking-tighter">
+              Servei marítim
+            </h4>
             <p className="text-3xl">Entrega entre 2/3 dies laborals</p>
           </div>
           <p className="col-span-2 ml-8">

@@ -38,17 +38,17 @@
 
   @keyframes truck {
     0% {
-      left: 80%;
+      left: 30%;
       /* transform: scaleY(1); */
       /* height: 5rem; */
     }
     50% {
-      left: 70%;
+      left: 20%;
       /* transform: scaleY(0.95); */
       /* height: 4.9rem; */
     }
     100% {
-      left: 80%;
+      left: 30%;
       /* transform: scaleY(1); */
       /* height: 5rem; */
     }
