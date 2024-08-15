@@ -8,7 +8,7 @@ import servei14 from "../public/servei14.svg";
 import serveiBici from "../public/serveiBici.svg";
 import serveiInmediat from "../public/serveiInmediat.svg";
 import ship from "../public/ship.svg";
-import spain from "../public/spain.svg";
+import spain from "../public/spain-smooth.svg";
 import phone from "../public/phone.svg";
 import Image from "next/image";
 import mask from "../public/hero.png";
@@ -53,14 +53,9 @@ export default function App() {
       <div className="mt-60 grid justify-items-center relative">
         <h2 className="text-vsm leading-snug text-[#312F2F] w-[55%] -ml-10 whitespace-nowrap tracking-tighter">
           Som una empresa menorquina <br /> dedicada al{" "}
-          <span className="underline decoration-[#FF6262] font-medium">
-            lliurament
-          </span>{" "}
-          i{" "}
-          <span className="underline decoration-[#FF6262] font-medium">
-            recollida
-          </span>{" "}
-          <br /> de paqueteria i missatgeria.
+          <span className=" font-medium">lliurament</span> i{" "}
+          <span className=" font-medium">recollida</span> <br /> de paqueteria i
+          missatgeria.
         </h2>
         <Image
           src={package2}
@@ -78,14 +73,8 @@ export default function App() {
           <p className=" text-vlg md:text-vsm leading-tight tracking-tight whitespace-nowrap">
             Oferim recollides i <br />
             lliuraments a tota la <br />
-            <span className="underline decoration-[#FF6262] font-medium">
-              peninsula
-            </span>{" "}
-            i a totes <br />
-            les{" "}
-            <span className="underline decoration-[#FF6262] font-medium">
-              illes balears
-            </span>
+            <span className=" font-medium">peninsula</span> i a totes <br />
+            les <span className=" font-medium">illes balears</span>
           </p>
           <Image
             src={spain}
