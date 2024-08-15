@@ -6,11 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@uidotdev/usehooks": "^2.4.1",
     "framer-motion": "^11.2.12",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-google-recaptcha": "^3.1.0"
   },
   "engines": {
     "node": ">=18"
