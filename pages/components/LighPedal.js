@@ -126,14 +126,18 @@ export function LightPedal() {
       </div>
       <div className={styles.scene}>
         <section>
-          <p>Gaudeix de les teves rutes en bici sense cap càrrega.</p>
+          <p>
+            Gaudeix de les teves rutes <br /> en bici sense cap càrrega.
+          </p>
         </section>
         <SVGMotion path={path2} delay={time / 6 - 1 / 3} start={0} end={0} />
       </div>
       <div className={styles.scene}>
         <section>
           <p>
-            Pedala i gaudeix del viatge mentre nosaltres et portem les maletes!
+            Pedala i gaudeix del viatge
+            <br /> mentre nosaltres et portem <br />
+            les maletes!
           </p>
         </section>
         <SVGMotion
