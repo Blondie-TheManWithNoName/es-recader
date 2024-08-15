@@ -28,7 +28,6 @@ export default function App() {
   return (
     <div className="relative w-full">
       <div className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
-        {/* {size.width}px / {size.height}px */}
         <div className="grid justify-center">
           <Image src={title} alt="title" className="mt-32 scale-125 " />
         </div>
@@ -49,24 +48,8 @@ export default function App() {
           slow={1.5}
           fast={1}
         ></TruckMotion>
-        {/* <Image src={vector} alt="mask" className="w-screen col-span-2" /> */}
-        {/* <div className="relative mt-12 col-span-2"> */}
-        {/* <div className="w-screen relative flex items-center justify-end"> */}
-        {/* <h2 className="text-6xl text-[#312F2F] pr-32">
-              Lliura o rep paquets <br /> amb{" "}
-              <span className="font-bold text-[#FF6262] italic">esRecader</span>
-            </h2> */}
-        {/* <Image
-              src={line}
-              alt="mask"
-              className="w-screen absolute bottom-0 z-20"
-            /> */}
-
-        {/* </div> */}
-        {/* </div> */}
       </div>
-      {/* <div className="h-[80vh] w-screen flex justify-center items-center"> */}
-      {/* </div> */}
+
       <div className="mt-60 grid justify-items-center relative">
         <h2 className="text-vsm leading-snug text-[#312F2F] w-[55%] -ml-10 whitespace-nowrap tracking-tighter">
           Som una empresa menorquina <br /> dedicada al{" "}
@@ -82,7 +65,7 @@ export default function App() {
         <Image
           src={package2}
           alt="title"
-          className="w-[65%] md:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-30"
+          className="w-[65%] md:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-70"
           // className="w-[65%] md:w-[45%] absolute -rotate-[40deg] right-0 -bottom-[27rem] z-10 opacity-20"
         />
       </div>
@@ -91,7 +74,6 @@ export default function App() {
           <span className="text-vsm pl-7"> Els nostres</span>
           <span style={{ marginTop: "-3rem" }}>Serveis</span>
         </h2>
-        {/* <Image src={serveis} alt="title" className="absolute top-0" /> */}
         <div className="flex flex-col md:flex-row w-full justify-center items-center mt-20 md:mt-40 gap-20 md:gap-28">
           <p className=" text-vlg md:text-vsm leading-tight tracking-tight whitespace-nowrap">
             Oferim recollides i <br />
