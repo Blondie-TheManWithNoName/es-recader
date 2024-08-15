@@ -11,7 +11,7 @@ import phone from "../public/phone.svg";
 import mail from "../public/mail.svg";
 import whatsapp from "../public/whatsapp.svg";
 import Image from "next/image";
-import guy from "../public/guy-white-circle-3.jpg";
+import guy from "../public/guy-white-circle-2.jpg";
 import line from "../public/line-2.svg";
 import truck from "../public/truck.svg";
 import cavalls from "../public/cavalls.svg";
@@ -19,8 +19,30 @@ import maritim from "../public/maritim.svg";
 import package2 from "../public/package-open.svg";
 import TruckMotion from "./components/TruckMotion";
 import Head from "next/head";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function App() {
+  const form = useRef();
+  const [capVal, setCapVal] = useState(null);
+
+  // Function to handle form submission
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("", "", form.current, "") //REPLACE WITH KEYS
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   return (
     <main className="relative w-full">
       <Head>
@@ -199,37 +221,41 @@ export default function App() {
         <div className="h-5 bg-[#FF6262] absolute top-0 w-full"></div>
         <div className="flex flex-col-reverse w-full relative pt-[7vw] lg:flex-row ">
           <div className="flex flex-col items-center bg-[#312f2f]">
-            <form action="" className="w-[70%] ml-10 mt-24 lg:mt-0">
-              <label htmlFor="" className="text-white">
+            <form ref={form} onSubmit={sendEmail} className="w-[70%] ml-10">
+              <label htmlFor="name" className="text-white">
                 Nom*
               </label>
               <input
                 type="text"
-                name="name"
-                id=""
+                name="user_name"
+                id="name"
                 placeholder="Jon Doe"
                 className="mb-10"
               />
-              <label htmlFor="" className="text-white">
+              <label htmlFor="email" className="text-white">
                 Email*
               </label>
               <input
-                type="text"
-                name="name"
-                id=""
+                type="email"
+                name="user_email"
+                id="email"
                 placeholder="hola@email.com"
                 className="mb-10"
               />
-              <label htmlFor="" className="text-white">
+              <label htmlFor="message" className="text-white">
                 Missatge*
               </label>
               <textarea
-                type="text"
-                name="name"
-                id=""
+                name="message"
+                id="message"
                 placeholder="Missatge"
                 className="pb-64 h-80 min-h-80"
               ></textarea>
+              <ReCAPTCHA
+                sitekey="" //REPLACE WITH KEYS
+                onChange={(val) => setCapVal(val)}
+              />
+              <input disabled={!capVal} type="submit" value="Send" />
             </form>
           </div>
 
