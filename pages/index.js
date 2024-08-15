@@ -6,14 +6,10 @@ import serveis from "../public/serveis.svg";
 import servei10 from "../public/servei10.svg";
 import servei14 from "../public/servei14.svg";
 import serveiBici from "../public/serveiBici.svg";
-import serveiInmediat from "../public/serveiInmediat.svg";
 import ship from "../public/ship.svg";
 import spain from "../public/spain-smooth.svg";
 import phone from "../public/phone.svg";
 import Image from "next/image";
-import mask from "../public/hero.png";
-import vector from "../public/vector.svg";
-import guy from "../public/guy-white-circle-2.jpg";
 import line from "../public/line-2.svg";
 import truck from "../public/truck.svg";
 import cavalls from "../public/cavalls.svg";
@@ -23,8 +19,6 @@ import package2 from "../public/package-open.svg";
 import TruckMotion from "./components/TruckMotion";
 
 export default function App() {
-  // const size = useWindowSize();
-
   return (
     <div className="relative w-full">
       <div className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
@@ -84,52 +78,49 @@ export default function App() {
         </div>
       </div>
 
+      {/* Light Pedal */}
       <LightPedal />
 
-      <div className=" flex flex-col items-center mt-52 relative">
-        <div className="grid grid-cols-[5rem_auto] gap-x-10 gap-y-10 pl-24 sm:pr-5">
-          <Image src={serveiBici} alt="title" />
-          <div>
-            <h4 className="text-4xl font-bold tracking-tighter">
-              Pedal Lleuger
-            </h4>
-            <p className="text-3xl">Transport de maletes per ciclistes*</p>
-          </div>
-          <Image src={cavalls} alt="title" />
-          <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">
-              Servei camí de cavalls
-            </h4>
-            <p className="text-3xl">
-              Transport de maletes entre hotels/estàncies*
-            </p>
-          </div>
-          <Image src={servei10} alt="title" className="scale-105" />
-          <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">Servei 10</h4>
-            <p className="text-3xl">
-              Entrega de paqueteria l'endemà abans de les 10h
-            </p>
-          </div>
-          <Image src={servei14} alt="title" className="scale-105" />
-          <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">Servei 14</h4>
-            <p className="text-3xl">
-              Entrega de paqueteria l'endemà abans de les 14h
-            </p>
-          </div>
-          <Image src={maritim} alt="title" />
-          <div className="">
-            <h4 className="text-4xl font-bold tracking-tighter">
-              Servei marítim
-            </h4>
-            <p className="text-3xl">Entrega entre 2/3 dies laborals</p>
-          </div>
-          <p className="col-span-2 ml-8">
-            *Serveis nomes disponibles a Menorca
+      {/* Services Section */}
+      <section className=" flex flex-col items-center mt-52 relative">
+        <dl className="grid grid-cols-[5rem_auto] grid-rows-[auto_auto] gap-x-10 pl-24 sm:pr-5 ">
+          <Servei
+            title="Pedal Lleuger*"
+            desc="Transport de maletes per ciclistes"
+            img={serveiBici}
+          />
+
+          <Servei
+            title="Servei camí de cavalls*"
+            desc="Transport de maletes entre hotels/estàncies"
+            img={cavalls}
+          />
+
+          <Servei
+            title="Servei 10"
+            desc="Entrega de paqueteria l'endemà abans de les 10h"
+            img={servei10}
+            scale={105}
+          />
+
+          <Servei
+            title="Servei 14"
+            desc="Entrega de paqueteria l'endemà abans de les 14h"
+            img={servei14}
+            scale={105}
+          />
+
+          <Servei
+            title="Servei marítim*"
+            desc="Entrega entre 2/3 dies laborals"
+            img={maritim}
+          />
+
+          <p className="col-span-2 ml-8 mt-10">
+            * Serveis nomes disponibles a Menorca
           </p>
-        </div>
-      </div>
+        </dl>
+      </section>
 
       <footer className="bg-[#312F2F] w-screen h-[85vh] mt-48 relative">
         <div className="h-5 bg-[#FF6262] absolute top-0 w-full"></div>
@@ -195,5 +186,19 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function Servei({ img, title, desc, scale = 100 }) {
+  return (
+    <>
+      <Image
+        src={img}
+        alt={`${title} Image`}
+        className={`row-span-2 scale-${scale} mt-10`}
+      />
+      <dt className="text-4xl font-bold tracking-tighter mt-10">{title}</dt>
+      <dd className="text-3xl h-8">{desc}</dd>
+    </>
   );
 }
