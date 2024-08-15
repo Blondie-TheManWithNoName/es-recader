@@ -32,11 +32,12 @@
     // Text
     position: fixed;
     text-wrap: wrap;
-    padding-right: 20em;
+    // padding-right: 20em;
     padding-bottom: 10em;
-    width: 80rem;
+    width: 100%;
 
     p {
+      padding-left: 7vw;
       font-size: 4.5vw;
       line-height: 1em;
       font-weight: 500;

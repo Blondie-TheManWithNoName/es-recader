@@ -6,9 +6,10 @@ import serveis from "../public/serveis.svg";
 import servei10 from "../public/servei10.svg";
 import servei14 from "../public/servei14.svg";
 import serveiBici from "../public/serveiBici.svg";
-import ship from "../public/ship.svg";
 import spain from "../public/spain-smooth.svg";
 import phone from "../public/phone.svg";
+import mail from "../public/mail.svg";
+import whatsapp from "../public/whatsapp.svg";
 import Image from "next/image";
 import guy from "../public/guy-white-circle-3.jpg";
 import line from "../public/line-2.svg";
@@ -120,8 +121,8 @@ export default function App() {
         <Image
           src={package2}
           alt="title"
-          className="w-[65%] md:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-70"
-          // className="w-[65%] md:w-[45%] absolute -rotate-[40deg] right-0 -bottom-[27rem] z-10 opacity-20"
+          className="w-[65%] lg:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-70"
+          // className="w-[65%] lg:w-[45%] absolute -rotate-[40deg] right-0 -bottom-[27rem] z-10 opacity-20"
         />
       </section>
 
@@ -130,8 +131,8 @@ export default function App() {
           <span className="text-vsm pl-7"> Els nostres</span>
           <span style={{ marginTop: "-3rem" }}>Serveis</span>
         </h2>
-        <div className="flex flex-col md:flex-row w-full justify-center items-center mt-20 md:mt-40 gap-20 md:gap-28">
-          <p className=" text-vlg md:text-vsm leading-tight tracking-tight whitespace-nowrap">
+        <div className="flex flex-col lg:flex-row w-full justify-center items-center mt-20 lg:mt-40 gap-20 lg:gap-28">
+          <p className=" text-vlg lg:text-vsm leading-tight tracking-tight whitespace-nowrap">
             Oferim recollides i <br />
             lliuraments a tota la <br />
             <span className=" font-medium">peninsula</span> i a totes <br />
@@ -140,7 +141,7 @@ export default function App() {
           <Image
             src={spain}
             alt="title"
-            className="w-[65%] md:w-[30%] relative"
+            className="w-[65%] lg:w-[30%] relative"
           />
         </div>
       </div>
@@ -194,11 +195,11 @@ export default function App() {
         </dl>
       </section>
 
-      <footer className="bg-[#312F2F] w-screen h-[85vh] mt-48 relative">
+      <footer className="bg-[#312F2F] w-screen lg:h-[85vh] mt-48 relative">
         <div className="h-5 bg-[#FF6262] absolute top-0 w-full"></div>
-        <div className="grid grid-cols-2 w-full h-full relative pt-24">
+        <div className="flex flex-col-reverse w-full relative pt-[7vw] lg:flex-row ">
           <div className="flex flex-col items-center bg-[#312f2f]">
-            <form action="" className="w-[70%] ml-10">
+            <form action="" className="w-[70%] ml-10 mt-24 lg:mt-0">
               <label htmlFor="" className="text-white">
                 Nom*
               </label>
@@ -232,28 +233,38 @@ export default function App() {
             </form>
           </div>
 
-          <div className="text-white flex flex-col items-center bg-[#312f2f]">
+          <div className="text-white flex flex-col items-center bg-[#312f2f] lg:pr-32">
             <h4 className="relative leading-none">
               {" "}
-              <span className="text-[6.8rem] tracking-tighter">
+              <span className="text-[11vw] lg:text-[7.5vw] tracking-tighter text-center">
                 Contacta'ns <br />
               </span>{" "}
-              <span className="text-6xl tracking-tighter absolute top-18 w-full">
+              <span className="text-[6vw] lg:text-[4vw] tracking-tighter absolute top-18 w-full text-center">
                 i demana pressupost!
               </span>
             </h4>
-            <div className="grid grid-cols-[5rem_12rem_auto] items-center w-[50%] mt-36 gap-y-12">
-              <Image src={phone} alt="title" />
-              <p className="text-3xl font-bold">Telefon</p>
-              <p className="text-3xl whitespace-nowrap">612 22 57 36</p>
+            <div className="grid grid-cols-[6vw_18vw_auto] lg:grid-cols-[5vw_12vw_auto] items-center justify-center w-full mt-[15vw] lg:mt-[10vw] gap-y-[2rem] gap-x-[4vw] lg:gap-x-[2vw]">
+              <Image src={phone} alt="phone" className="w-[5vw] lg:w-[3.5vw]" />
+              <p className="text-[3vw] lg:text-[1.9vw] font-bold">Telefon</p>
+              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+                612 22 57 36
+              </p>
 
-              <Image src={phone} alt="title" />
-              <p className="text-3xl font-bold">Correu</p>
-              <p className="text-3xl whitespace-nowrap">612 22 57 36</p>
+              <Image src={mail} alt="e-mail" className="w-[5vw] lg:w-[3.5vw]" />
+              <p className="text-[3vw] lg:text-[1.9vw] font-bold">Correu</p>
+              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+                info@esrecader.com
+              </p>
 
-              <Image src={phone} alt="title" />
-              <p className="text-3xl font-bold">WhatsApp</p>
-              <p className="text-3xl whitespace-nowrap">612 22 57 36</p>
+              <Image
+                src={whatsapp}
+                alt="Whatsapp"
+                className="w-[5vw] lg:w-[3.5vw]"
+              />
+              <p className="text-[3vw] lg:text-[1.9vw] font-bold">WhatsApp</p>
+              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+                612 22 57 36
+              </p>
             </div>
           </div>
         </div>
