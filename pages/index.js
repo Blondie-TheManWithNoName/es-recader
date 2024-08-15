@@ -10,31 +10,97 @@ import ship from "../public/ship.svg";
 import spain from "../public/spain-smooth.svg";
 import phone from "../public/phone.svg";
 import Image from "next/image";
+import guy from "../public/guy-white-circle-3.jpg";
 import line from "../public/line-2.svg";
 import truck from "../public/truck.svg";
 import cavalls from "../public/cavalls.svg";
 import maritim from "../public/maritim.svg";
-import building from "../public/building.svg";
 import package2 from "../public/package-open.svg";
 import TruckMotion from "./components/TruckMotion";
+import Head from "next/head";
 
 export default function App() {
   return (
-    <div className="relative w-full">
-      <div className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
-        <div className="grid justify-center">
-          <Image src={title} alt="title" className="mt-32 scale-125 " />
-        </div>
-        <Image src={guy} alt="mask" className="w-[34rem]" />
+    <main className="relative w-full">
+      <Head>
+        <title>esRecader • Paqueteria en Menorca</title>
+        <meta
+          name="description"
+          content="Servicio de envio de maletas, paquetes por la peninsula e islas baleares."
+          key="desc"
+        />
+        {/* Canonical Tag */}
+        <link rel="canonical" href="https://www.esrecader.com/" />
+
+        {/* Meta Robots */}
+        {/* <meta name="robots" content="index, follow" /> */}
+
+        {/* Open Graph Meta Tags */}
+        <meta
+          property="og:site_name"
+          content="esRecader • Paqueteria en Menorca"
+        />
+        <meta property="og:title" content="esRecader • Paqueteria en Menorca" />
+        <meta
+          property="og:description"
+          content="Servicio de envio de maletas, paquetes por la peninsula e islas baleares."
+        />
+        <meta property="og:image" content={title} />
+        <meta property="og:url" content="https://www.esrecader.com/" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="" />
+        <meta
+          name="twitter:title"
+          content="esRecader • Paqueteria en Menorca"
+        />
+        <meta
+          name="twitter:description"
+          content="Servicio de envio de maletas, paquetes por la peninsula e islas baleares."
+        />
+        <meta name="twitter:image" content={title} />
+        <meta name="twitter:site" content="@EsRecader" />
+
+        {/* Viewport Meta Tag */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Charset Meta Tag */}
+        <meta charSet="UTF-8" />
+
+        {/* Language Meta Tag */}
+        <meta httpEquiv="Content-Language" content="es" />
+
+        {/* Content Type Meta Tag */}
+        <meta http-equiv="Content-Type" content="text/html" />
+
+        {/* Author Meta Tag */}
+        <meta name="author" content="es Recader & Co" />
+      </Head>
+
+      <header className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
+        <h1 className="grid justify-center">
+          <Image
+            src={title}
+            alt="Es Recader - Paqueteria i Missatgeria"
+            className="mt-32 scale-125"
+          />
+        </h1>
+        <Image
+          src={guy}
+          alt="Delivery guy carryng a package"
+          className="w-[34rem]"
+        />
         <Image
           src={line}
-          alt="mask"
+          alt="Line"
           className="w-[60%] left-0 absolute bottom-0 z-20"
+          onerror="this.style.display='none';"
         />
         <Image
           src={truck}
-          alt="mask"
-          className=" absolute bottom-16  origin-bottom-left left-[75%] z-10 truck-animation"
+          alt="Truck animation"
+          className="absolute bottom-16  origin-bottom-left left-[75%] z-10 truck-animation"
         />
         <TruckMotion
           array={Array.from({ length: 7 })}
@@ -42,9 +108,9 @@ export default function App() {
           slow={1.5}
           fast={1}
         ></TruckMotion>
-      </div>
+      </header>
 
-      <div className="mt-60 grid justify-items-center relative">
+      <section className="mt-60 grid justify-items-center relative">
         <h2 className="text-vsm leading-snug text-[#312F2F] w-[55%] -ml-10 whitespace-nowrap tracking-tighter">
           Som una empresa menorquina <br /> dedicada al{" "}
           <span className=" font-medium">lliurament</span> i{" "}
@@ -57,7 +123,8 @@ export default function App() {
           className="w-[65%] md:w-[25%] absolute -rotate-[35deg] right-52 -bottom-[22rem] opacity-70"
           // className="w-[65%] md:w-[45%] absolute -rotate-[40deg] right-0 -bottom-[27rem] z-10 opacity-20"
         />
-      </div>
+      </section>
+
       <div className="mb-64 flex flex-col items-center mt-[25rem]">
         <h2 className="text-vlg font-extrabold uppercase italic relative z-10 flex flex-col">
           <span className="text-vsm pl-7"> Els nostres</span>
@@ -84,18 +151,21 @@ export default function App() {
       {/* Services Section */}
       <section className=" flex flex-col items-center mt-52 relative">
         <dl className="grid grid-cols-[5rem_auto] grid-rows-[auto_auto] gap-x-10 pl-24 sm:pr-5 ">
+          {/* Bike Service */}
           <Servei
             title="Pedal Lleuger*"
             desc="Transport de maletes per ciclistes"
             img={serveiBici}
           />
 
+          {/* Hike Service */}
           <Servei
             title="Servei camí de cavalls*"
             desc="Transport de maletes entre hotels/estàncies"
             img={cavalls}
           />
 
+          {/* 10h Service */}
           <Servei
             title="Servei 10"
             desc="Entrega de paqueteria l'endemà abans de les 10h"
@@ -103,6 +173,7 @@ export default function App() {
             scale={105}
           />
 
+          {/* 14h Service */}
           <Servei
             title="Servei 14"
             desc="Entrega de paqueteria l'endemà abans de les 14h"
@@ -110,6 +181,7 @@ export default function App() {
             scale={105}
           />
 
+          {/* Sea Service */}
           <Servei
             title="Servei marítim*"
             desc="Entrega entre 2/3 dies laborals"
@@ -159,6 +231,7 @@ export default function App() {
               ></textarea>
             </form>
           </div>
+
           <div className="text-white flex flex-col items-center bg-[#312f2f]">
             <h4 className="relative leading-none">
               {" "}
@@ -185,7 +258,7 @@ export default function App() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
 
