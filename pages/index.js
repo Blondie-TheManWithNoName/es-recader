@@ -22,10 +22,13 @@ import Head from "next/head";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import Modal from "./components/Modal";
 
 export default function App() {
   const form = useRef();
   const [capVal, setCapVal] = useState(null);
+  const [modal, setModal] = useState(false);
+  const [modalText, setModalText] = useState(null);
 
   // Function to handle form submission
   const sendEmail = (e) => {
@@ -35,18 +38,31 @@ export default function App() {
       .sendForm("", "", form.current, "") //REPLACE WITH KEYS
       .then(
         () => {
+          setModalText({
+            title: "Missatge enviat correctament!",
+            text: "Espereu una propera resposta al vostre correu",
+          });
           console.log("SUCCESS!");
         },
         (error) => {
+          setModalText({
+            title: "ERROR!",
+            text: "Ha sorgit un error, torna a provar!",
+          });
           console.log("FAILED...", error.text);
         }
       );
   };
 
+  function callbackModal() {
+    setModal(false);
+    setModalText(null);
+  }
+
   return (
     <main className="relative w-full">
       <Head>
-        <title>esRecader • Paqueteria en Menorca</title>
+        <title>es Recader • Paqueteria en Menorca</title>
         <meta
           name="description"
           content="Servicio de envio de maletas, paquetes por la peninsula e islas baleares."
@@ -61,7 +77,7 @@ export default function App() {
         {/* Open Graph Meta Tags */}
         <meta
           property="og:site_name"
-          content="esRecader • Paqueteria en Menorca"
+          content="es Recader • Paqueteria en Menorca"
         />
         <meta property="og:title" content="esRecader • Paqueteria en Menorca" />
         <meta
@@ -76,7 +92,7 @@ export default function App() {
         <meta name="twitter:card" content="" />
         <meta
           name="twitter:title"
-          content="esRecader • Paqueteria en Menorca"
+          content="es Recader • Paqueteria en Menorca"
         />
         <meta
           name="twitter:description"
@@ -219,29 +235,36 @@ export default function App() {
 
       <footer className="bg-[#312F2F] w-screen lg:h-[85vh] mt-48 relative">
         <div className="h-5 bg-[#FF6262] absolute top-0 w-full"></div>
-        <div className="flex flex-col-reverse w-full relative pt-[7vw] lg:flex-row ">
-          <div className="flex flex-col items-center bg-[#312f2f]">
-            <form ref={form} onSubmit={sendEmail} className="w-[70%] ml-10">
-              <label htmlFor="name" className="text-white">
-                Nom*
-              </label>
-              <input
-                type="text"
-                name="user_name"
-                id="name"
-                placeholder="Jon Doe"
-                className="mb-10"
-              />
-              <label htmlFor="email" className="text-white">
-                Email*
-              </label>
-              <input
-                type="email"
-                name="user_email"
-                id="email"
-                placeholder="hola@email.com"
-                className="mb-10"
-              />
+        <div className="flex flex-col-reverse w-full items-center lg:items-start relative pt-[5vw] lg:flex-row ">
+          <div className="flex flex-col items-center  bg-[#312f2f] lg:w-1/2">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="lg:w-[70%] ml-10 pt-[10vw] lg:pt-[2vw]"
+            >
+              <div className="grid grid-cols-2 gap-x-8">
+                <label htmlFor="name" className="text-white">
+                  Nom*
+                </label>
+                <label htmlFor="email" className="text-white">
+                  Email*
+                </label>
+                <input
+                  type="text"
+                  name="user_name"
+                  id="user_name"
+                  placeholder="Jon Doe"
+                  className="mb-10 rounded-xl px-5 py-2"
+                />
+                <input
+                  type="email"
+                  name="user_email"
+                  id="user_email"
+                  placeholder="hola@email.com"
+                  className="mb-10 rounded-xl px-5 py-2"
+                />
+              </div>
+
               <label htmlFor="message" className="text-white">
                 Missatge*
               </label>
@@ -249,52 +272,61 @@ export default function App() {
                 name="message"
                 id="message"
                 placeholder="Missatge"
-                className="pb-64 h-80 min-h-80"
+                className="pb-64 h-40 min-h-36 rounded-xl px-5 py-2"
               ></textarea>
-              <ReCAPTCHA
-                sitekey="" //REPLACE WITH KEYS
-                onChange={(val) => setCapVal(val)}
-              />
-              <input disabled={!capVal} type="submit" value="Send" />
+              <div className="flex flex-row mt-10 justify-between items-center w-full">
+                <ReCAPTCHA
+                  onChange={(val) => setCapVal(val)}
+                />
+                <input
+                  disabled={!capVal}
+                  type="submit"
+                  value="Enviar"
+                  className="w-40 border-none bg-[#FF6262] rounded-xl px-5 py-2 font-semibold text-[#312f2f] uppercase cursor-pointer hover:bg-[#ff7e7e]"
+                />
+              </div>
             </form>
           </div>
 
-          <div className="text-white flex flex-col items-center bg-[#312f2f] lg:pr-32">
+          <div className="text-white flex flex-col items-center  bg-[#312f2f] lg:pr-32 w-1/2">
             <h4 className="relative leading-none">
               {" "}
-              <span className="text-[11vw] lg:text-[7.5vw] tracking-tighter text-center">
+              <span className="text-[11vw] lg:text-[6.25vw] tracking-tighter text-center">
                 Contacta'ns <br />
               </span>{" "}
-              <span className="text-[6vw] lg:text-[4vw] tracking-tighter absolute top-18 w-full text-center">
+              <span className="text-[6vw] lg:text-[3.5vw] tracking-tighter absolute top-18 w-full text-center">
                 i demana pressupost!
               </span>
             </h4>
-            <div className="grid grid-cols-[6vw_18vw_auto] lg:grid-cols-[5vw_12vw_auto] items-center justify-center w-full mt-[15vw] lg:mt-[10vw] gap-y-[2rem] gap-x-[4vw] lg:gap-x-[2vw]">
-              <Image src={phone} alt="phone" className="w-[5vw] lg:w-[3.5vw]" />
-              <p className="text-[3vw] lg:text-[1.9vw] font-bold">Telefon</p>
-              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+            <div className="grid grid-cols-[6vw_18vw_auto] lg:grid-cols-[5vw_12vw_auto] items-center justify-center w-full mt-[15vw] lg:mt-[7.5vw] gap-y-[2rem] lg:gap-y-[2vw] gap-x-[4vw] lg:gap-x-[0vw]">
+              <Image src={phone} alt="phone" className="w-[5vw] lg:w-[3vw]" />
+              <p className="text-[3vw] lg:text-[1.5vw] font-bold">Telefon</p>
+              <p className="text-[3vw] lg:text-[1.5vw] whitespace-nowrap">
                 612 22 57 36
               </p>
 
-              <Image src={mail} alt="e-mail" className="w-[5vw] lg:w-[3.5vw]" />
-              <p className="text-[3vw] lg:text-[1.9vw] font-bold">Correu</p>
-              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+              <Image src={mail} alt="e-mail" className="w-[5vw] lg:w-[3vw]" />
+              <p className="text-[3vw] lg:text-[1.5vw] font-bold">Correu</p>
+              <p className="text-[3vw] lg:text-[1.5vw] whitespace-nowrap">
                 info@esrecader.com
               </p>
 
               <Image
                 src={whatsapp}
                 alt="Whatsapp"
-                className="w-[5vw] lg:w-[3.5vw]"
+                className="w-[5vw] lg:w-[3vw]"
               />
-              <p className="text-[3vw] lg:text-[1.9vw] font-bold">WhatsApp</p>
-              <p className="text-[3vw] lg:text-[1.9vw] whitespace-nowrap">
+              <p className="text-[3vw] lg:text-[1.5vw] font-bold">WhatsApp</p>
+              <p className="text-[3vw] lg:text-[1.5vw] whitespace-nowrap">
                 612 22 57 36
               </p>
             </div>
           </div>
         </div>
       </footer>
+      {modalText ? (
+        <Modal callback={callbackModal} text={modalText}></Modal>
+      ) : null}
     </main>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import HouseMotion from "./HouseMotion";
-import { delay, motion } from "framer-motion";
 
 export default function TruckMotion({ array, delay, slow, fast }) {
   return (

@@ -124,9 +124,11 @@ body {
 input,
 textarea {
   border: 0;
-  background-color: #312f2f;
-  border-bottom: solid 2px rgba(255, 255, 255, 0.5);
-  color: #ffffff;
+  /* background-color: #312f2f; */
+  border: solid 2px rgba(255, 255, 255, 0.5);
+  background-color: #ffffff;
+  color: #312f2f;
+  /* color: #ffffff; */
   line-height: 2rem;
   width: 100%;
   padding-left: 0.25rem;
