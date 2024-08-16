@@ -30,6 +30,7 @@ export default function App() {
   const [modal, setModal] = useState(false);
   const [modalText, setModalText] = useState(null);
 
+  console.log(process.env.NEXT_PUBLIC_TEST);
   // Function to handle form submission
   const sendEmail = (e) => {
     e.preventDefault();
