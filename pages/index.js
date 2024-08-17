@@ -29,6 +29,8 @@ export default function App() {
   const [capVal, setCapVal] = useState(null);
   const [modal, setModal] = useState(false);
   const [modalText, setModalText] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +62,7 @@ export default function App() {
   // Function to handle form submission
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -73,6 +75,7 @@ export default function App() {
       //REPLACE WITH KEYS
       .then(
         () => {
+          setLoading(false);
           setModalText({
             title: "Missatge enviat correctament!",
             text: "Espereu una propera resposta al vostre correu",
@@ -87,6 +90,7 @@ export default function App() {
           console.log("SUCCESS!");
         },
         (error) => {
+          setLoading(false);
           setModalText({
             title: "ERROR!",
             text: "Ha sorgit un error, torna a provar!",
@@ -330,12 +334,17 @@ export default function App() {
                   sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
                   onChange={(val) => setCapVal(val)}
                 />
-                <input
-                  disabled={!capVal}
+                <button
+                  disabled={loading}
                   type="submit"
-                  value="Enviar"
-                  className="w-40 border-none bg-[#FF6262] rounded-xl px-5 py-2 font-semibold text-[#312f2f] uppercase cursor-pointer hover:bg-[#ff7e7e]"
-                />
+                  className={`relative w-40 h-12 border-none rounded-xl px-5 py-2 font-semibold uppercase cursor-pointer bg-[#FF6262] text-[#312f2f] hover:bg-[#ff7e7e] flex flex-col items-center justify-center`}
+                >
+                  {loading ? (
+                    <div className="w-4 h-1/2 border-2 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                  ) : (
+                    "Enviar"
+                  )}
+                </button>
               </div>
             </form>
           </div>
