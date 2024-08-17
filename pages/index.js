@@ -29,6 +29,33 @@ export default function App() {
   const [capVal, setCapVal] = useState(null);
   const [modal, setModal] = useState(false);
   const [modalText, setModalText] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log("name", name);
+    console.log("value", value);
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("formData");
+
+    if (savedFormData) {
+      setFormData(JSON.parse(savedFormData));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
 
   // Function to handle form submission
   const sendEmail = (e) => {
@@ -50,6 +77,13 @@ export default function App() {
             title: "Missatge enviat correctament!",
             text: "Espereu una propera resposta al vostre correu",
           });
+          setFormData({
+            user_name: "",
+            user_email: "",
+            message: "",
+          });
+          localStorage.removeItem("formData");
+
           console.log("SUCCESS!");
         },
         (error) => {
@@ -264,6 +298,8 @@ export default function App() {
                   id="user_name"
                   placeholder="Jon Doe"
                   className="mb-10 rounded-xl px-5 py-2"
+                  value={formData.user_name}
+                  onChange={handleChange}
                 />
                 <input
                   required="true"
@@ -271,6 +307,8 @@ export default function App() {
                   name="user_email"
                   id="user_email"
                   placeholder="hola@email.com"
+                  value={formData.user_email}
+                  onChange={handleChange}
                   className="mb-10 rounded-xl px-5 py-2"
                 />
               </div>
@@ -284,6 +322,8 @@ export default function App() {
                 id="message"
                 placeholder="Missatge"
                 className="pb-64 h-40 min-h-36 rounded-xl px-5 py-2"
+                value={formData.message}
+                onChange={handleChange}
               ></textarea>
               <div className="flex flex-row mt-10 justify-between items-center w-full">
                 <ReCAPTCHA
