@@ -80,6 +80,7 @@ export default function App() {
             title: "Missatge enviat correctament!",
             text: "Espereu una propera resposta al vostre correu",
           });
+
           setFormData({
             user_name: "",
             user_email: "",
@@ -175,12 +176,13 @@ export default function App() {
           src={guy}
           alt="Delivery guy carryng a package"
           className="w-[34rem]"
+          priority
         />
         <Image
           src={line}
           alt="Line"
           className="w-[60%] left-0 absolute bottom-0 z-20"
-          onerror="this.style.display='none';"
+          onError="this.style.display='none';"
         />
         <Image
           src={truck}
@@ -296,7 +298,7 @@ export default function App() {
                   Email*
                 </label>
                 <input
-                  required="true"
+                  required={true}
                   type="text"
                   name="user_name"
                   id="user_name"
@@ -306,7 +308,7 @@ export default function App() {
                   onChange={handleChange}
                 />
                 <input
-                  required="true"
+                  required={true}
                   type="email"
                   name="user_email"
                   id="user_email"
@@ -321,7 +323,7 @@ export default function App() {
                 Missatge*
               </label>
               <textarea
-                required="true"
+                required={true}
                 name="message"
                 id="message"
                 placeholder="Missatge"

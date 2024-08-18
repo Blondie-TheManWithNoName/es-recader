@@ -66,42 +66,45 @@ export function LightPedal() {
 
   const time = 15;
   const r = 150;
+  const validWidth = size.width || 0;
+  const validHeightSVG = heightSVG || 0;
 
   const path = `M0 15
-                H${size.width - heightSVG / 2}
-                A 1 1, 0, 0 1, ${size.width - heightSVG / 2} ${heightSVG / 2}
-                H${heightSVG / 2}
-                A 1 1, 0, 0 0, ${heightSVG / 2} ${heightSVG}
-                H${size.width}`;
-
-  const pathWhite1 = `M${heightSVG / 2} ${heightSVG / 2}
-                      A 1 1, 0, 0 0, ${heightSVG / 2} ${heightSVG}
-                      H0
-                      V${heightSVG / 2}
-                      Z`;
-
-  const path2 = `M0 ${heightSVG} H${size.width}`;
-
-  const pathWhite2 = `M${size.width - heightSVG / 1.25} ${heightSVG}
-                      A ${r} ${r}, 0, 0 0, ${
-    size.width - heightSVG / 1.25 + r
-  } ${heightSVG - r}
-
-  V${heightSVG / 2}
-                      H${size.width}
-                      V${heightSVG}
-                      Z`;
-  const path3 = `M0 ${heightSVG} 
-                 H${size.width - heightSVG / 1.25}
-                 A ${r} ${r}, 0, 0 0, ${size.width - heightSVG / 1.25 + r} ${
-    heightSVG - r
+                H${validWidth - validHeightSVG / 2}
+                A 1 1, 0, 0 1, ${validWidth - validHeightSVG / 2} ${
+    validHeightSVG / 2
   }
+                H${validHeightSVG / 2}
+                A 1 1, 0, 0 0, ${validHeightSVG / 2} ${validHeightSVG}
+                H${validWidth}`;
+
+  const pathWhite1 = `M${validHeightSVG / 2} ${validHeightSVG / 2}
+                      A 1 1, 0, 0 0, ${validHeightSVG / 2} ${validHeightSVG}
+                      H0
+                      V${validHeightSVG / 2}
+                      Z`;
+
+  const path2 = `M0 ${validHeightSVG} H${validWidth}`;
+
+  const pathWhite2 = `M${validWidth - validHeightSVG / 1.25} ${validHeightSVG}
+                      A ${r} ${r}, 0, 0 0, ${
+    validWidth - validHeightSVG / 1.25 + r
+  } ${validHeightSVG - r}
+                      V${validHeightSVG / 2}
+                      H${validWidth}
+                      V${validHeightSVG}
+                      Z`;
+
+  const path3 = `M0 ${validHeightSVG} 
+                 H${validWidth - validHeightSVG / 1.25}
+                 A ${r} ${r}, 0, 0 0, ${
+    validWidth - validHeightSVG / 1.25 + r
+  } ${validHeightSVG - r}
                  V${15 + r}
                  A ${r} ${r}, 0, 0 1, ${
-    size.width - heightSVG / 1.25 + r * 2
+    validWidth - validHeightSVG / 1.25 + r * 2
   } 15
-                 H${size.width}
-                 `;
+                 H${validWidth}`;
 
   return (
     <motion.div
