@@ -12,6 +12,7 @@ import mail from "../public/mail.svg";
 import whatsapp from "../public/whatsapp.svg";
 import Image from "next/image";
 import guy from "../public/guy-white-circle-3.jpg";
+import guy2 from "../public/guy-2.jpg";
 import line from "../public/line-2.svg";
 import truck from "../public/truck.svg";
 import cavalls from "../public/cavalls.svg";
@@ -27,7 +28,6 @@ import Modal from "./components/Modal";
 export default function App() {
   const form = useRef();
   const [capVal, setCapVal] = useState(null);
-  const [modal, setModal] = useState(false);
   const [modalText, setModalText] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -100,7 +100,6 @@ export default function App() {
   };
 
   function callbackModal() {
-    setModal(false);
     setModalText(null);
   }
 
@@ -162,37 +161,56 @@ export default function App() {
         <meta name="author" content="es Recader & Co" />
       </Head>
 
-      <header className="grid grid-cols-2 justify-center  justify-items-center mt-28 w-full pl-60 pr-40 relative">
+      <header className="grid grid-rows-[auto_auto] gap-y-10 lg:gap-y-0  lg:grid-cols-2 justify-center justify-items-center lg:mt-28 w-full lg:pl-60 lg:pr-40 relative">
         <h1 className="grid justify-center">
           <Image
             src={title}
             alt="Es Recader - Paqueteria i Missatgeria"
-            className="mt-32 scale-125"
+            className="mt-32 lg:scale-125 w-[100vw]"
           />
         </h1>
-        <Image
-          src={guy}
-          alt="Delivery guy carryng a package"
-          className="w-[34rem]"
-          priority
-        />
-        <Image
-          src={line}
-          alt="Line"
-          className="w-[60%] left-0 absolute bottom-0 z-20"
-          onError="this.style.display='none';"
-        />
-        <Image
-          src={truck}
-          alt="Truck animation"
-          className="absolute bottom-16  origin-bottom-left left-[75%] z-10 truck-animation"
-        />
-        <TruckMotion
-          array={Array.from({ length: 7 })}
-          delay={0}
-          slow={1.5}
-          fast={1}
-        ></TruckMotion>
+        <div className="w-full">
+          {/* Image for screens smaller than 'lg' */}
+          <div className="block lg:hidden">
+            <Image
+              src={guy2}
+              alt="Delivery guy carrying a package"
+              className="w-full"
+              priority
+            />
+          </div>
+
+          {/* Image for screens 'lg' and larger */}
+          <div className="hidden lg:block">
+            <Image
+              src={guy}
+              alt="Delivery guy carrying a package"
+              className="w-[34rem]"
+              priority
+            />
+          </div>
+        </div>
+        <div className="hidden lg:block">
+          <Image
+            src={line}
+            alt="Line"
+            className="w-[60%] absolute left-0 bottom-0 z-20"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <Image
+            src={truck}
+            alt="Truck animation"
+            className="absolute bottom-16 origin-bottom-left left-[75%] z-10 truck-animation"
+          />
+
+          <TruckMotion
+            array={Array.from({ length: 7 })}
+            delay={0}
+            slow={1.5}
+            fast={1}
+          />
+        </div>
       </header>
 
       <section className="mt-60 grid justify-items-center relative">
