@@ -39,8 +39,6 @@ export default function App() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log("name", name);
-    console.log("value", value);
     setFormData({
       ...formData,
       [name]: value,
@@ -213,9 +211,9 @@ export default function App() {
       </section>
 
       <div className="mb-64 flex flex-col items-center mt-[25rem]">
-        <h2 className="text-vlg font-extrabold uppercase italic relative z-10 flex flex-col">
+        <h2 className="text-vxxl lg:text-vxl font-extrabold uppercase italic relative z-10 flex flex-col text-center">
           <span className="text-vsm pl-7"> Els nostres</span>
-          <span style={{ marginTop: "-3rem" }}>Serveis</span>
+          <span style={{ marginTop: "-3vw" }}>Serveis</span>
         </h2>
         <div className="flex flex-col lg:flex-row w-full justify-center items-center mt-20 lg:mt-40 gap-20 lg:gap-28">
           <p className=" text-vlg lg:text-vsm leading-tight tracking-tight whitespace-nowrap">
@@ -227,7 +225,7 @@ export default function App() {
           <Image
             src={spain}
             alt="title"
-            className="w-[65%] lg:w-[30%] relative"
+            className="w-[55%] lg:w-[30%] relative"
           />
         </div>
       </div>

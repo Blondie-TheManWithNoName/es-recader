@@ -13,7 +13,9 @@ module.exports = {
       fontSize: {
         vs: "3vw", // Custom viewport-sized font, e.g., 3% of the viewport width
         vsm: "3.5vw", // Slightly larger viewport-sized font
-        vlg: "6vw", // Even larger viewport-sized font
+        vlg: "5vw", // Even larger viewport-sized font
+        vxl: "6vw", // Slightly larger viewport-sized font
+        vxxl: "7vw", // Slightly larger viewport-sized font
       },
     },
   },
